@@ -122,8 +122,13 @@
               "devServerTarget": "gatitos-app:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "gatitos-app"
 }
