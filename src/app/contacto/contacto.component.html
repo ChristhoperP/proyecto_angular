@@ -1,1 +1,57 @@
-<p>contacto works!</p>
+<div class="row mt-4">
+    <div class="col-md-8">
+        <h2 class="mb-3">Contacto</h2>
+
+        <form #formContacto="ngForm" (ngSubmit)="onSubmit(formContacto)">
+            <div class="mb-3">
+                <label for="nombre">Nombre</label>
+                <input class="form-control" type="text" name="nombre" #nombre="ngModel" [(ngModel)]="usuario.nombre"
+                    [ngClass]="{'input_invalido': (nombre.touched || hizo_sub) && !nombre.valid,
+                'input_valido': (nombre.touched || hizo_sub) && nombre.valid}" required>
+                <div *ngIf="(nombre.touched || hizo_sub) && !nombre.valid " class="campo_invalido">
+                    Se necesita un nombre válido.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="apellidos">Apellidos</label>
+                <input class="form-control" type="text" name="apellidos" #apellidos="ngModel"
+                    [(ngModel)]="usuario.apellidos" [ngClass]="{'input_invalido': (apellidos.touched || hizo_sub) && !apellidos.valid,
+                'input_valido': (apellidos.touched || hizo_sub) && apellidos.valid}" required>
+                <div *ngIf="(apellidos.touched || hizo_sub) && !apellidos.valid " class="campo_invalido">
+                    Se necesitan apellidos válidos.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="email">Email</label>
+                <input class="form-control" type="email" name="email" #email="ngModel" [(ngModel)]="usuario.email"
+                    [ngClass]="{'input_invalido': (email.touched || hizo_sub) && !email.valid,
+                'input_valido': (email.touched || hizo_sub) && email.valid}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+                <div *ngIf="(email.touched || hizo_sub) && !email.valid " class="campo_invalido">
+                    <div *ngIf="email.errors.required">
+                        Se requiere ingresar un correo eléctronico.
+                      </div>
+                    <div *ngIf="email.errors.pattern">
+                        Se necesita una dirección de correo válida.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="mensaje">Mensaje</label>
+                <textarea class="form-control" name="mensaje" #mensaje="ngModel" [(ngModel)]="usuario.mensaje"
+                    [ngClass]="{'input_invalido': (mensaje.touched || hizo_sub) && !mensaje.valid,
+                'input_valido': (mensaje.touched || hizo_sub) && mensaje.valid}" required></textarea>
+                <div *ngIf="(mensaje.touched || hizo_sub) && !mensaje.valid" class="campo_invalido">
+                    Se necesita un mensaje válido.
+                </div>
+            </div>
+
+            <hr class="mb-4">
+            <input class="btn btn-info btn-lg btn-block" type="submit" value="Enviar">
+
+        </form>
+
+    </div>
+</div>

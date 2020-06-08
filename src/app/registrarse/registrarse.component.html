@@ -1,1 +1,98 @@
-<p>registrarse works!</p>
+<div class="row mt-4">
+
+  <div class="col-md-8">
+    <h4 class="mb-3">Registro</h4>
+    <form [formGroup]="registro_usuario" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="nombre">nombre</label>
+          <input type="text" class="form-control" name="nombre" placeholder="" value="" formControlName="nombre"
+            [ngClass]="{'input_invalido': (nombre.touched || hizo_sub) && !nombre.valid,
+          'input_valido': (nombre.touched || hizo_sub) && nombre.valid}" required>
+
+          <div *ngIf="(nombre.touched || hizo_sub) && !nombre.valid" class="campo_invalido">
+            <div *ngIf="nombre.errors.required">
+              Se requiere un nombre válido.
+            </div>
+            <div *ngIf="nombre.errors.minlength">
+              Nombre demasiado corto.
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="apellidos">Apellidos</label>
+          <input type="text" class="form-control" name="apellidos" placeholder="" value="" formControlName="apellidos"
+            [ngClass]="{'input_invalido': (apellidos.touched || hizo_sub) && !apellidos.valid,
+          'input_valido': (apellidos.touched || hizo_sub) && apellidos.valid}" required>
+          <div *ngIf="(apellidos.touched || hizo_sub) && !apellidos.valid" class="campo_invalido">
+            <div *ngIf="apellidos.errors.required">
+              Se requiere ingresar los apellidos.
+            </div>
+            <div *ngIf="apellidos.errors.minlength">
+              Apellidos demasiado corto.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="username">Nombre de usuario</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">@</span>
+          </div>
+          <input type="text" class="form-control" name="username" placeholder="Nombre de usuario"
+            formControlName="username" [ngClass]="{'input_invalido': (username.touched || hizo_sub) && !username.valid,
+            'input_valido': (username.touched || hizo_sub) && username.valid}" required>
+          <div *ngIf="(username.touched || hizo_sub) && !username.valid" class="campo_invalido" style="width: 100%;">
+            <div *ngIf="username.errors.required">
+              Se requiere ingresar un nombre de usuario.
+            </div>
+            <div *ngIf="username.errors.minlength">
+              Nombre de usuario demasiado corto.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="email">Correo</label>
+        <input type="email" class="form-control" name="email" placeholder="ejemplo@email.com" formControlName="email"
+          [ngClass]="{'input_invalido': (email.touched || hizo_sub) && !email.valid,
+        'input_valido': (email.touched || hizo_sub) && email.valid}" >
+        <div *ngIf="(email.touched || hizo_sub) && !email.valid" class="campo_invalido">
+          <div *ngIf="email.errors.required">
+            Se requiere ingresar un correo eléctronico.
+          </div>
+          <div *ngIf="email.errors.minlength">
+            El correo necesita más caracteres.
+          </div>
+          <div *ngIf="email.errors.pattern">
+            Se necesita una dirección de correo válida.
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="password">Contraseña</label>
+        <input type="password" class="form-control" name="password" formControlName="password" [ngClass]="{'input_invalido': (password.touched || hizo_sub) && !password.valid,
+        'input_valido': (password.touched || hizo_sub) && password.valid}" pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$" required>
+        <div *ngIf="(password.touched || hizo_sub) && !password.valid" class="campo_invalido">
+          <div *ngIf="password.errors.required">
+            Se requiere ingresar una contraseña.
+          </div>
+          <div *ngIf="password.errors.minlength">
+            La contraseña debe tener 8 carácteres como mínimo.
+          </div>
+          <div *ngIf="password.errors.pattern">
+            La contraseña debe contener al menos: 1 mayúscula, 1 minúscula y 1 dígito.
+          </div>
+        </div>
+      </div>
+
+      <hr class="mb-4">
+      <button class="btn btn-info btn-lg btn-block" type="submit">Registrarse</button>
+    </form>
+  </div>
+
+</div>
