@@ -12,6 +12,8 @@ import { AmigosComponent } from './amigos/amigos.component';
 import { RegistrarseComponent } from './registrarse/registrarse.component';
 import { IniciaSesionComponent } from './inicia-sesion/inicia-sesion.component';
 import { ExternoComponent } from './externo/externo.component';
+import { PeticionesService } from './services/peticiones.service';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { ExternoComponent } from './externo/externo.component';
     AmigosComponent,
     RegistrarseComponent,
     IniciaSesionComponent,
-    ExternoComponent
+    ExternoComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,8 @@ import { ExternoComponent } from './externo/externo.component';
     HttpClientModule //Parte de las peticiones
   ],
   providers: [
-    appRoutingProviders
+    appRoutingProviders,
+    PeticionesService
   ],
   bootstrap: [AppComponent]
 })

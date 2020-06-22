@@ -8,15 +8,19 @@ import { AmigosComponent } from "./amigos/amigos.component";
 import { ContactoComponent } from "./contacto/contacto.component";
 import { RegistrarseComponent } from "./registrarse/registrarse.component";
 import { IniciaSesionComponent } from "./inicia-sesion/inicia-sesion.component";
+import { LogoutComponent } from "./logout/logout.component";
+
+import { AuthGuard } from "./guards/auth.guard";
 
 //Array de rutas
 const appRoutes: Routes = [
     {path: '', component: InicioComponent},
     {path: 'inicio', component: InicioComponent},
-    {path: 'amigos', component: AmigosComponent},
-    {path: 'contacto', component: ContactoComponent},
+    {path: 'amigos', component: AmigosComponent, canActivate: [AuthGuard]},
+    {path: 'contacto', component: ContactoComponent, canActivate: [AuthGuard]},
     {path: 'registrarse', component: RegistrarseComponent},
     {path: 'iniciar-sesion', component: IniciaSesionComponent},
+    {path: 'logout', component: LogoutComponent},
     {path: '**', component: InicioComponent}
 ];
 

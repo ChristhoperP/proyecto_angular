@@ -76,7 +76,7 @@
       <div class="mb-3">
         <label for="password">Contraseña</label>
         <input type="password" class="form-control" name="password" formControlName="password" [ngClass]="{'input_invalido': (password.touched || hizo_sub) && !password.valid,
-        'input_valido': (password.touched || hizo_sub) && password.valid}" pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$" required>
+        'input_valido': (password.touched || hizo_sub) && password.valid}" required>
         <div *ngIf="(password.touched || hizo_sub) && !password.valid" class="campo_invalido">
           <div *ngIf="password.errors.required">
             Se requiere ingresar una contraseña.

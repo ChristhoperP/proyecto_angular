@@ -20,14 +20,14 @@ export class InicioComponent implements OnInit {
 
   ngOnInit(): void {
     //this.saludo=this._inicioService.getHome();
-    this._peticionesService.getUser().subscribe(
+    /* this._peticionesService.getUser().subscribe(
       result=>{
         console.log(result);
       },
       error=>{
         console.log(<any>error);
       }
-    );
+    ); */
   }
 
 }
