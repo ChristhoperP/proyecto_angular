@@ -133,5 +133,8 @@
       }
     }
   },
-  "defaultProject": "gatitos-app"
+  "defaultProject": "gatitos-app",
+  "cli": {
+    "analytics": false
+  }
 }
