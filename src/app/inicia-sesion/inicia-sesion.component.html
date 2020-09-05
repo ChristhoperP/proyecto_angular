@@ -7,10 +7,10 @@
     </div>
 
     <div *ngIf="hizo_sub">
-        <div *ngIf="!hubo_err">
+        <div *ngIf="hubo_err==0">
             <p class="text-success">Se inició Sesión Correctamente.</p>
         </div>
-        <div *ngIf="hubo_err">
+        <div *ngIf="hubo_err==1">
             <p class="text-danger">Error: {{mensaje}}</p>
         </div>
     </div>

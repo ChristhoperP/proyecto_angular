@@ -23,7 +23,7 @@ export class IniciaSesionComponent implements OnInit {
 
   public inicio_usuario: FormGroup;
   public hizo_sub: boolean=false;
-  public hubo_err: boolean=true;
+  public hubo_err: number=2;
   public mensaje: String='';
 
   public new_user: any;
@@ -44,6 +44,7 @@ export class IniciaSesionComponent implements OnInit {
 
   onSubmit(){
     this.hizo_sub=true;
+    this.hubo_err=2;
 
     if(this.inicio_usuario.valid){
 
@@ -53,13 +54,13 @@ export class IniciaSesionComponent implements OnInit {
       this._peticionesService.loginUser(this.new_user).subscribe(
         response=>{
           this.hizo_sub=false;
-          this.hubo_err=false;
+          this.hubo_err=0;
           //console.log(response);
           this._peticionesService.setToken(response.token);
           this._router.navigate(['inicio']);
         },
         error=>{
-          this.hubo_err=true;
+          this.hubo_err=1;
           console.log(error);
           this.mensaje=error.error.message;
         }
