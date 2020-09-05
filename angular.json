@@ -22,34 +22,18 @@
             "assets": [
               "src/favicon.ico",
               "src/assets"
-
             ],
             "styles": [
               "src/assets/css/bootstrap.min.css",
               "src/assets/css/productos.css",
               "src/assets/css/styles.css",
-              "src/styles.css",
-              "node_modules/admin-lte/plugins/fontawesome-free/css/all.min.css",
-              "node_modules/admin-lte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css",
-              "node_modules/admin-lte/docs_html/assets/css/adminlte.css"
-
+              "src/styles.css"
             ],
             "scripts": [
               "src/assets/js/jquery-3.5.1.slim.min.js",
               "src/assets/js/popper.min.js",
               "src/assets/js/bootstrap.min.js",
-              "src/assets/js/form-validation.js",
-              "node_modules/admin-lte/plugins/jquery/jquery.js",
-              "node_modules/admin-lte/plugins/bootstrap/js/bootstrap.bundle.js",
-              "node_modules/admin-lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.js",
-              "node_modules/admin-lte/dist/js/adminlte.js",
-              "node_modules/admin-lte/dist/js/demo.js",
-              "node_modules/admin-lte/plugins/jquery-mousewheel/jquery.mousewheel.js",
-              "node_modules/admin-lte/plugins/raphael/raphael.js",
-              "node_modules/admin-lte/plugins/jquery-mapael/jquery.mapael.js",
-              "node_modules/admin-lte/plugins/jquery-mapael/maps/usa_states.js",
-              "node_modules/admin-lte/plugins/chart.js/Chart.js",
-              "node_modules/admin-lte/dist/js/pages/dashboard2.js"
+              "src/assets/js/form-validation.js"
             ]
           },
           "configurations": {

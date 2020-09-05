@@ -14,7 +14,6 @@ import { IniciaSesionComponent } from './inicia-sesion/inicia-sesion.component';
 import { ExternoComponent } from './externo/externo.component';
 import { PeticionesService } from './services/peticiones.service';
 import { LogoutComponent } from './logout/logout.component';
-import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +24,7 @@ import { AdminComponent } from './admin/admin.component';
     RegistrarseComponent,
     IniciaSesionComponent,
     ExternoComponent,
-    LogoutComponent,
-    AdminComponent
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
