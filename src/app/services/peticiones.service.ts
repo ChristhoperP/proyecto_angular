@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { Global } from "./global";
 
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
@@ -11,14 +12,8 @@ export class PeticionesService{
         public _http: HttpClient
     ){
 
-        this.url="https://gatitos-app.herokuapp.com/api/";
-        //this.url="http://127.0.0.1/gatitos/ajax/";
-        //this.url="https://reqres.in/";
-    }
+        this.url=Global.url;
 
-    getUser(): Observable<any>{
-        return this._http.get(this.url+"prueba_conexion.php");
-        //return this._http.get(this.url+"api/users/2");
     }
 
     addUser(user): Observable<any>{
@@ -26,8 +21,6 @@ export class PeticionesService{
         let headers = new HttpHeaders().set('Content-Type','application/json');
 
         return this._http.post(this.url+"signup",params,{headers:headers});
-        //return this._http.post(this.url+"api/useres",params,{headers:headers});
-        //return this._http.post(this.url+"agregar_usuario.php",params,{headers:headers});
     }
 
     loginUser(user): Observable<any>{

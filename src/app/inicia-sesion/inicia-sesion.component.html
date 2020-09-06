@@ -6,7 +6,10 @@
         <p class="text-muted">Para acceder al contenido que comparten tus amigos.</p>
     </div>
 
-    <div *ngIf="hizo_sub">
+    <div *ngIf="hizo_sub && inicio_usuario.valid">
+        <div class="loading text-center mb-3" *ngIf="hubo_err==2 && loading==true">
+            <img src="assets/img/loading/1.gif" alt="Cargando..." width="40" height="40">
+        </div>
         <div *ngIf="hubo_err==0">
             <p class="text-success">Se inició Sesión Correctamente.</p>
         </div>
@@ -33,7 +36,7 @@
         </label>
     </div>
     <button class="btn btn-lg btn-info btn-block" type="submit">Ingresar</button>
-
+    
 </form>
 
 <br>

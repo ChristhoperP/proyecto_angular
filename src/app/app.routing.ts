@@ -8,7 +8,7 @@ import { AmigosComponent } from "./amigos/amigos.component";
 import { ContactoComponent } from "./contacto/contacto.component";
 import { RegistrarseComponent } from "./registrarse/registrarse.component";
 import { IniciaSesionComponent } from "./inicia-sesion/inicia-sesion.component";
-import { LogoutComponent } from "./logout/logout.component";
+import { ProfileComponent } from "./profile/profile.component";
 
 import { AuthGuard } from "./guards/auth.guard";
 
@@ -20,7 +20,7 @@ const appRoutes: Routes = [
     {path: 'contacto', component: ContactoComponent, canActivate: [AuthGuard]},
     {path: 'registrarse', component: RegistrarseComponent},
     {path: 'iniciar-sesion', component: IniciaSesionComponent},
-    {path: 'logout', component: LogoutComponent},
+    {path: 'profile', component: ProfileComponent},
     {path: '**', component: InicioComponent}
 ];
 

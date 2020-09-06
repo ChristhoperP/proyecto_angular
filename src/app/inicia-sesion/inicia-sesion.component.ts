@@ -24,6 +24,7 @@ export class IniciaSesionComponent implements OnInit {
   public inicio_usuario: FormGroup;
   public hizo_sub: boolean=false;
   public hubo_err: number=2;
+  public loading: boolean=false;
   public mensaje: String='';
 
   public new_user: any;
@@ -45,9 +46,11 @@ export class IniciaSesionComponent implements OnInit {
   onSubmit(){
     this.hizo_sub=true;
     this.hubo_err=2;
+    this.loading=false;
 
     if(this.inicio_usuario.valid){
 
+      this.loading=true;
       this.new_user.username=this.inicio_usuario.value.username;
       this.new_user.password=this.inicio_usuario.value.password;
 
