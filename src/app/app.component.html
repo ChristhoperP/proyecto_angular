@@ -43,7 +43,7 @@
               <a [routerLink]="['/profile']" [routerLinkActive]="['activo']" class="nav-link" href="#">Profile</a>
             </li>
             <li class="nav-item">
-              <a  class="nav-link" (click)="authService.logoutUser()" href="#">Logout</a>
+              <a class="nav-link" (click)="authService.logoutUser()" href="#">Logout</a>
             </li>
           </ng-template>
         </ul>
@@ -53,6 +53,7 @@
 </header>
 
 <div class="container">
+  <ngx-spinner bdColor = "rgba(0,0,0,0.8)" size = "medium" color = "#ffff00" type = "pacman" [fullScreen] = "true"><p style="color: white" > Espere PTM... </p></ngx-spinner>
   <router-outlet></router-outlet>
 </div>
 

@@ -2,6 +2,7 @@
 
   <div class="col-md-8">
     <h4 class="mb-3">Registro</h4>
+
     <form [formGroup]="registro_usuario" (ngSubmit)="onSubmit()">
       <div class="row">
         <div class="col-md-6 mb-3">
@@ -36,14 +37,17 @@
       </div>
 
       <div class="mb-3">
-        <label for="username">Nombre de usuario</label>
+        <label for="username">Nombre de usuario 
+          <span class="text-danger" *ngIf="hubo_err==1 && errrUser">
+            Error: {{mensaje}}
+          </span></label>
         <div class="input-group">
           <div class="input-group-prepend">
             <span class="input-group-text">@</span>
           </div>
-          <input type="text" class="form-control" name="username" placeholder="Nombre de usuario"
-            formControlName="username" [ngClass]="{'input_invalido': (username.touched || hizo_sub) && !username.valid,
-            'input_valido': (username.touched || hizo_sub) && username.valid}" required>
+          <input type="text" (ngModelChange)="errrUser=false" class="form-control" name="username"
+            placeholder="Nombre de usuario" formControlName="username" [ngClass]="{'input_invalido': ((username.touched || hizo_sub) && !username.valid) || errrUser,
+            'input_valido': ((username.touched || hizo_sub) && username.valid) && !errrUser}" required>
           <div *ngIf="(username.touched || hizo_sub) && !username.valid" class="campo_invalido" style="width: 100%;">
             <div *ngIf="username.errors.required">
               Se requiere ingresar un nombre de usuario.
@@ -56,10 +60,12 @@
       </div>
 
       <div class="mb-3">
-        <label for="email">Correo</label>
+        <label for="email">Correo <span class="text-danger" *ngIf="hubo_err==1 && errEmail">
+          Error: {{mensaje}}
+        </span></label>
         <input type="email" class="form-control" name="email" placeholder="ejemplo@email.com" formControlName="email"
-          [ngClass]="{'input_invalido': (email.touched || hizo_sub) && !email.valid,
-        'input_valido': (email.touched || hizo_sub) && email.valid}" >
+          [ngClass]="{'input_invalido': (email.touched || hizo_sub) && !email.valid || errEmail,
+        'input_valido': (email.touched || hizo_sub) && email.valid && !errEmail}">
         <div *ngIf="(email.touched || hizo_sub) && !email.valid" class="campo_invalido">
           <div *ngIf="email.errors.required">
             Se requiere ingresar un correo eléctronico.

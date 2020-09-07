@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from '@angular/forms';
 import { routing, appRoutingProviders } from "./app.routing";//Es necesario para el routing
@@ -17,6 +17,9 @@ import { AuthService } from "./services/auth.service";
 import { TokenInterceptorService } from "./services/token-interceptor.service";
 import { ProfileComponent } from './profile/profile.component';
 
+import { NgxSpinnerModule } from "ngx-spinner";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,9 +35,12 @@ import { ProfileComponent } from './profile/profile.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    NgxSpinnerModule,
     routing,//Parte del routing
     HttpClientModule //Parte de las peticiones
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     appRoutingProviders,
     PeticionesService,

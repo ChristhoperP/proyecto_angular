@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { PeticionesService } from "../services/peticiones.service";
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-registrarse',
@@ -26,12 +27,18 @@ export class RegistrarseComponent implements OnInit {
 
   public registro_usuario: FormGroup;
   public hizo_sub: boolean=false;
-
+  public errrUser: boolean=false;
+  public errEmail: boolean=false;
   public new_user: any;
+
+  public hubo_err: number=2;
+  public mensaje: String='';
+  public usernameRep: String='';
 
   constructor(
     private _peticionesService: PeticionesService,
-    private _router: Router
+    private _router: Router,
+    private spinner: NgxSpinnerService
   ) { 
     this.registro_usuario=this.createFormGroup();
     this.new_user={
@@ -48,6 +55,7 @@ export class RegistrarseComponent implements OnInit {
 
   onSubmit(){
     this.hizo_sub=true;
+    this.hubo_err=2;
 
     if(this.registro_usuario.valid){
       //console.log(this.registro_usuario.value);
@@ -57,20 +65,37 @@ export class RegistrarseComponent implements OnInit {
       this.new_user.email=this.registro_usuario.value.email;
       this.new_user.password=this.registro_usuario.value.password;
 
+      this.spinner.show();
+
       this._peticionesService.addUser(this.new_user).subscribe(
         response=>{
           //alert(response);
+          this.hubo_err=0;
+          this.spinner.hide();
           console.log(response);
           this.registro_usuario.reset();
-          this.hizo_sub=false;
           this._peticionesService.setToken(response.token);
           this._router.navigate(['inicio']);
         },
         error=>{
-          alert(<any>error);
+          this.spinner.hide();
+
+          console.log(error);
+          this.mensaje=error.error.message;
+
+          if(this.mensaje=="El username ya está en uso."){
+            this.errrUser=true;
+          }else if(this.mensaje=="El email ya está en uso."){
+            this.errEmail=true;
+          }
+
+          this.hubo_err=1;
+
         }
       );
     }
+    
+    this.hizo_sub=false;
   }
 
   get nombre() { return this.registro_usuario.get('nombre');}
