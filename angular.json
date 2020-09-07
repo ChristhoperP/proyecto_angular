@@ -24,20 +24,20 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/css/sidebar.css",
               "src/assets/css/bootstrap.min.css",
               "src/assets/css/productos.css",
-              "src/assets/css/styles.css",
-              "src/assets/css/sb-admin-2.min.css"
+              "src/assets/css/styles.css"
+
 
             ],
             "scripts": [
+              "src/assets/js/sidebar.js",
               "src/assets/js/jquery-3.5.1.slim.min.js",
               "src/assets/js/popper.min.js",
               "src/assets/js/bootstrap.min.js",
               "src/assets/js/form-validation.js",
-              "src/assets/js/jquery.min.js",
-              "src/assets/js/bootstrap.bundle.min.js",
-              "src/assets/js/sb-admin-2.min.js"
+              "src/assets/js/jquery.min.js"
 
              ]
           },
