@@ -40,10 +40,14 @@
           </ng-container>
           <ng-template #loggedIn>
             <li class="nav-item">
-              <a [routerLink]="['/profile']" [routerLinkActive]="['activo']" class="nav-link" href="#">Profile</a>
+              <a [routerLink]="['/profile']" [routerLinkActive]="['activo']" class="nav-link" href="#">Perfil</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" (click)="authService.logoutUser()" href="#">Logout</a>
+            </li>
+            <!-- Admin solo aparece logueado igual que perfil -->
+            <li class="nav-item">
+              <a [routerLink]="['/admin']" [routerLinkActive]="['activo']" class="nav-link" href="#">Admin</a>
             </li>
           </ng-template>
         </ul>

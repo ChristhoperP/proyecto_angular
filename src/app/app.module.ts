@@ -16,6 +16,7 @@ import { PeticionesService } from './services/peticiones.service';
 import { AuthService } from "./services/auth.service";
 import { TokenInterceptorService } from "./services/token-interceptor.service";
 import { ProfileComponent } from './profile/profile.component';
+import { AdminComponent } from './admin/admin.component';
 
 import { NgxSpinnerModule } from "ngx-spinner";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,7 +30,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RegistrarseComponent,
     IniciaSesionComponent,
     ExternoComponent,
-    ProfileComponent
+    ProfileComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
